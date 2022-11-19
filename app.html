@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>WSO - Schedule Your Day</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,500;0,600;0,700;1,300;1,500;1,600;1,700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;1,400&amp;display=swap" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/app.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Mashead header-->
+                <section class="form-page" id="fpg1" id="form">
+                        <div class="container px-5">
+                            <div class="row gx-5 align-items-center">
+                                    <!-- Mashead text and app badges-->
+                                    <div class="text-center ">
+                                        <h1 class="display-4 lh-1 mb-3">Let's Get Some Info!</h1>
+                                        <p class="lead fw-normal text-muted mb-5">Answer some questions and preferences that you have, and we will optimize your day for you</p>
+                            </div>
+
+                    <form>
+                            <label for="exampleInputEmail1">Name</label>
+                            <input style="width: 400px;" type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter your name">
+                            <small class="form-text text-muted">We'd like to know who you are!</small>
+                          </div><br>
+      
+                          <div class="form-group">
+                              <label for="exampleInputEmail1">Start of Day:</label>
+                              <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                              <small id="startDay" class="form-text text-muted">When would you like to start the day?</small>
+                            </div><br>
+      
+                            <div class="form-group">
+                              <label for="exampleInputEmail1">End of Day:</label>
+                              <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                              <small id="endDay" class="form-text text-muted">When would you like to end the day?</small>
+                            </div><br>
+
+                            <form>
+                                <small class="form-text text-muted">Anything you have to attend or complete today?</small><br>
+                                <input type="checkbox" id="lectures" name="value1" value="Lectures">
+                                <label for="value1">Lectures</label><br>
+                                <input type="checkbox" id="tutorials" name="value2" value="Tutorials">
+                                <label for="value2"> Tutorials</label><br>
+                                <input type="checkbox" id="labs" name="value3" value="Labs">
+                                <label for="value3">Labs</label><br>
+                                <input type="checkbox" id="quizzes" name="value4" value="Quizzes">
+                                <label for="value4"> Quizzes</label><br>
+                                <input type="checkbox" id="assignments" name="value5" value="Assignments">
+                                <label for="value5"> Assignments</label><br>
+                                <input type="checkbox" id="homework" name="value6" value="Homework">
+                                <label for="value6"> Homework</label><br><br>
+                              </form>
+
+                            
+                            <form>
+                                <small class="form-text text-muted">Goals to achieve throughout your day?</small><br>
+                                <input type="checkbox" id="study" name="value1" value="Study">
+                                <label for="value1">I need to study</label><br>
+                                <select id="studyDropdown">
+                                  <option value="volvo">Volvo</option>
+                                  <option value="saab">Saab</option>
+                                  <option value="mercedes">Mercedes</option>
+                                  <option value="audi">Audi</option>
+                                </select>
+                                <input type="checkbox" id="workout" name="value2" value="Workout">
+                                <label for="value2"> I want to workout</label><br>
+                                <input type="checkbox" id="eatOut" name="value3" value="Eat Out">
+                                <label for="value3">I want to eat out</label><br>
+                                <input type="checkbox" id="socialize" name="value4" value="Socialize">
+                                <label for="value4">I want to socialize</label><br><br>
+                            </form>
+                        <button style="width: 400px;"  id="form-button" type="submit" onclick="checkValidation2(); getName(); getUserData();" class="btn btn-primary">Continue</button><br>
+                    </form>
+                </section>
+
+                <section class="form-page" id="fpg2" style="display: none;">
+                    <div class="container px-5">
+                        <div class="row gx-5 align-items-center">
+                                <!-- Mashead text and app badges-->
+                                <div class="text-center ">
+                                    <h1 id="form-page-title-2" class="display-4 lh-1 mb-3"></h1>
+                                    <p class="lead fw-normal text-muted mb-5">Answer some questions and preferences that you have, and we will optimize your day for you</p>
+                        </div>
+                        <form>
+                            <div class="form-group" id="lectureGroup">
+                                <label for="exampleInputEmail1">Lecture Time-Window:</label>
+                                <small id="startDay" class="form-text text-muted">When does your lecture start?</small>
+                                <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                               
+                                <small id="startDay" class="form-text text-muted">When does your lecture end?</small>
+                                <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                              
+                              </div><br>
+
+
+                              <div class="form-group" id="tutorialGroup">
+                                <label for="exampleInputEmail1">Tutorial Time-Window:</label>
+
+                                <input style="width: 400px;" type="time" class="form-control" 
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tutorial Name">
+                                
+                                <small id="startDay" class="form-text text-muted">When does your tutorial start?</small>
+                                <input style="width: 400px;" type="time" class="form-control">
+
+                                <small id="startDay" class="form-text text-muted">When does your tutorial end?</small>
+                                <input style="width: 400px;" type="time" class="form-control">
+                              
+                              </div><br>
+
+                              <div class="form-group" id="labGroup">
+                                <div class="contents">
+                                  <label for="exampleInputEmail1">Lab Time-Window:</label>
+
+                                  <input style="width: 400px;" type="time" class="form-control" 
+                                  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Lab Name">
+
+                                  <small id="endDay" class="form-text text-muted">When does your lab start?</small>
+                                  <input style="width: 400px;" type="time" class="form-control" aria-describedby="emailHelp" placeholder="Enter your name">
+  
+                                  <small id="endDay" class="form-text text-muted">When does your lab end?</small>
+                                  <input style="width: 400px;" type="time" class="form-control" aria-describedby="emailHelp" placeholder="Enter your name">
+                                </div>
+                          
+                              </div><br>
+
+                              <div class="form-group" id="quizGroup">
+                                <label for="exampleInputEmail1">Quiz Time-Window:</label>
+
+                                <input style="width: 400px;" type="time" class="form-control" 
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Quiz Name">
+
+                                <small id="endDay" class="form-text text-muted">When does your quiz start?</small>
+                                <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+
+                                <small id="endDay" class="form-text text-muted">When does your quiz end?</small>
+                                <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+               
+                              </div><br>
+
+                              <div class="form-group" id="assignmentGroup">
+                                <label for="exampleInputEmail1">Assignment Time-Window:</label>
+
+                                <input style="width: 400px;" type="time" class="form-control" 
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Type of Assignment">
+
+                                <small id="startDay" class="form-text text-muted">How much time would you like to allocate on the assignment?</small>
+                                <input style="width: 400px;" type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Number of hours">
+
+                              </div><br>
+
+                              <div class="form-group" id="homeworkGroup">
+                                <label for="exampleInputEmail1">Homework Time-Window:</label>
+
+                                <input style="width: 400px;" type="time" class="form-control" 
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tutorial Name">
+
+                                <small id="startDay" class="form-text text-muted">How much time would you like to allocate on the assignment?</small>
+                                <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                                
+                              </div><br>
+    
+                                <button class="btn btn-primary" onclick="return show('fpg1','fpg2');">Go Back</button>
+                                <button class="btn btn-primary" onclick="return show('fpg3','fpg2');">Next</button><br>
+                        </form>
+                </section>
+
+                <section class="form-page" id="fpg3" style="display: none;">
+
+                </section>
+                
+       
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
