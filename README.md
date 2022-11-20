@@ -1,3 +1,3 @@
-#Western Schedule Optimizer (WSO)
+# Western Schedule Optimizer (WSO)
 
 help western students plan out their day by checking foot traffic in certain locations on campus
