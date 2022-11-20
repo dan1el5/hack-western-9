@@ -31,20 +31,20 @@
 
                     <form>
                             <label for="exampleInputEmail1">Name</label>
-                            <input style="width: 400px;" type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter your name">
+                            <input type="email" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter your name">
                             <small class="form-text text-muted">We'd like to know who you are!</small>
                           </div><br>
       
                           <div class="form-group">
                               <label for="exampleInputEmail1">Start of Day:</label>
-                              <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
-                              <small id="startDay" class="form-text text-muted">When would you like to start the day?</small>
+                              <input id="startDay" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                              <small class="form-text text-muted">When would you like to start the day?</small>
                             </div><br>
       
                             <div class="form-group">
                               <label for="exampleInputEmail1">End of Day:</label>
-                              <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
-                              <small id="endDay" class="form-text text-muted">When would you like to end the day?</small>
+                              <input id="endDay" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                              <small class="form-text text-muted">When would you like to end the day?</small>
                             </div><br>
 
                             <form>
@@ -66,20 +66,47 @@
                             
                             <form>
                                 <small class="form-text text-muted">Goals to achieve throughout your day?</small><br>
-                                <input type="checkbox" id="study" name="value1" value="Study">
+                                <input type="checkbox" id="study" name="value7" value="Study">
                                 <label for="value1">I need to study</label><br>
-                                <select id="studyDropdown">
-                                  <option value="volvo">Volvo</option>
-                                  <option value="saab">Saab</option>
-                                  <option value="mercedes">Mercedes</option>
-                                  <option value="audi">Audi</option>
-                                </select>
+
+                                <div id="studyDropdown" style="display: none;">
+                                  <select>
+                                    <option selected="true" disabled="disabled">Where would you like to study?</option>
+                                    <option value="The D.B. Weldon Library">The D.B. Weldon Library</option>
+                                    <option value="Allyn & Betty Taylor Library">Allyn & Betty Taylor Library</option>
+                                  </select>
+                                </div>
+                               
                                 <input type="checkbox" id="workout" name="value2" value="Workout">
                                 <label for="value2"> I want to workout</label><br>
-                                <input type="checkbox" id="eatOut" name="value3" value="Eat Out">
+
+                                <input type="checkbox" id="eat" name="value3" value="Eat Out">
                                 <label for="value3">I want to eat out</label><br>
+
+                                <div id="eatDropdown" style="display: none;">
+                                  <select>
+                                    <option selected="true" disabled="disabled">Where would you like to eat?</option>
+                                    <option value="The Spoke">The Spoke</option>
+                                    <option value="The Wave">The Wave</option>
+                                    <option value="Einstiens">Einsteins</option>
+                                    <option value="Tim Hortons (UCC)">Tim Hortons (UCC)</option>
+                                  </select>
+                                </div>
+                                
                                 <input type="checkbox" id="socialize" name="value4" value="Socialize">
-                                <label for="value4">I want to socialize</label><br><br>
+                                <label for="value4">I want to socialize</label><br>
+
+                                <div id="socializeDropdown" style="display: none;">
+                                  <select>
+                                    <option selected="true" disabled="disabled">Where would you like to socialize?</option>
+                                    <option value="Ceeps">The Ceeps</option>
+                                    <option value="Jacks">Jacks</option>
+                                    <option value="Molly Blooms">Molly Blooms</option>
+                                    <option value="Delilah's">Delilah's</option>
+                                  </select>
+                                </div><br><br>
+
+
                             </form>
                         <button style="width: 400px;"  id="form-button" type="submit" onclick="checkValidation2(); getName(); getUserData();" class="btn btn-primary">Continue</button><br>
                     </form>
@@ -95,100 +122,169 @@
                         </div>
                         <form>
                             <div class="form-group" id="lectureGroup">
-                                <label for="exampleInputEmail1">Lecture Time-Window:</label>
-                                <small id="startDay" class="form-text text-muted">When does your lecture start?</small>
-                                <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                                <label for="exampleInputEmail1">Lecture Information</label><br><br>
+
+                                <input type="text" class="form-control" id="lectureName" aria-describedby="emailHelp" placeholder="Name of Lecture">
+
+                                <small class="form-text text-muted">When does your lecture start?</small>
+                                <input id="lectureStartTime" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
                                
-                                <small id="startDay" class="form-text text-muted">When does your lecture end?</small>
-                                <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                                <small class="form-text text-muted">When does your lecture end?</small>
+                                <input id="lectureEndTime" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
                               
                               </div><br>
 
 
                               <div class="form-group" id="tutorialGroup">
-                                <label for="exampleInputEmail1">Tutorial Time-Window:</label>
+                                <label for="exampleInputEmail1">Tutorial Information:</label><br><br>
 
-                                <input style="width: 400px;" type="time" class="form-control" 
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tutorial Name">
+                                <input type="text" class="form-control" id="tutorialName" aria-describedby="emailHelp" placeholder="Name of Tutorial">
                                 
-                                <small id="startDay" class="form-text text-muted">When does your tutorial start?</small>
-                                <input style="width: 400px;" type="time" class="form-control">
+                                <small class="form-text text-muted">When does your tutorial start?</small>
+                                <input id="tutorialStartTime" type="time" class="form-control">
 
-                                <small id="startDay" class="form-text text-muted">When does your tutorial end?</small>
-                                <input style="width: 400px;" type="time" class="form-control">
+                                <small  class="form-text text-muted">When does your tutorial end?</small>
+                                <input id="tutorialEndTime" type="time" class="form-control">
                               
                               </div><br>
 
                               <div class="form-group" id="labGroup">
                                 <div class="contents">
-                                  <label for="exampleInputEmail1">Lab Time-Window:</label>
+                                  <label for="exampleInputEmail1">Lab Information:</label><br><br>
 
-                                  <input style="width: 400px;" type="time" class="form-control" 
-                                  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Lab Name">
+                                  <input type="text" class="form-control" id="labName" aria-describedby="emailHelp" placeholder="Name of Lab">
 
-                                  <small id="endDay" class="form-text text-muted">When does your lab start?</small>
-                                  <input style="width: 400px;" type="time" class="form-control" aria-describedby="emailHelp" placeholder="Enter your name">
+                                  <small class="form-text text-muted">When does your lab start?</small>
+                                  <input id="labStartTime" type="time" class="form-control" aria-describedby="emailHelp" placeholder="Enter your name">
   
-                                  <small id="endDay" class="form-text text-muted">When does your lab end?</small>
-                                  <input style="width: 400px;" type="time" class="form-control" aria-describedby="emailHelp" placeholder="Enter your name">
+                                  <small class="form-text text-muted">When does your lab end?</small>
+                                  <input id="labEndTime"  class="form-control" aria-describedby="emailHelp" placeholder="Enter your name">
                                 </div>
                           
                               </div><br>
 
                               <div class="form-group" id="quizGroup">
-                                <label for="exampleInputEmail1">Quiz Time-Window:</label>
+                                <label for="exampleInputEmail1">Quiz Information:</label><br><br>
 
-                                <input style="width: 400px;" type="time" class="form-control" 
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Quiz Name">
+                                <input type="text" class="form-control" id="quizName" aria-describedby="emailHelp" placeholder="Type of Quiz">
 
-                                <small id="endDay" class="form-text text-muted">When does your quiz start?</small>
-                                <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                                <small class="form-text text-muted">When does your quiz start?</small>
+                                <input id="quizStartTime" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
 
-                                <small id="endDay" class="form-text text-muted">When does your quiz end?</small>
-                                <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                                <small class="form-text text-muted">When does your quiz end?</small>
+                                <input id="quizEndTime" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
                
                               </div><br>
 
                               <div class="form-group" id="assignmentGroup">
-                                <label for="exampleInputEmail1">Assignment Time-Window:</label>
+                                <label for="exampleInputEmail1">Assignment Information:</label><br><br>
 
-                                <input style="width: 400px;" type="time" class="form-control" 
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Type of Assignment">
+                                <input type="text" class="form-control" id="assignmentName" aria-describedby="emailHelp" placeholder="What assignment is it?">
 
-                                <small id="startDay" class="form-text text-muted">How much time would you like to allocate on the assignment?</small>
-                                <input style="width: 400px;" type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Number of hours">
+                                <small class="form-text text-muted">How much time would you like to allocate on the assignment?</small>
+                                <input id="assignmentTime" type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Number of hours">
 
                               </div><br>
 
                               <div class="form-group" id="homeworkGroup">
-                                <label for="exampleInputEmail1">Homework Time-Window:</label>
+                                <label for="exampleInputEmail1">Homework Information:</label>
 
-                                <input style="width: 400px;" type="time" class="form-control" 
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tutorial Name">
+                                <input type="input" class="form-control" id="homeworkName" aria-describedby="emailHelp" placeholder="What type of homework?">
 
-                                <small id="startDay" class="form-text text-muted">How much time would you like to allocate on the assignment?</small>
-                                <input style="width: 400px;" type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name">
+                                <small class="form-text text-muted">How much time would you like to allocate on your homework?</small>
+                                <input id="homeworkTime" type="input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Number of hours">
                                 
                               </div><br>
     
                                 <button class="btn btn-primary" onclick="return show('fpg1','fpg2');">Go Back</button>
-                                <button class="btn btn-primary" onclick="return show('fpg3','fpg2');">Next</button><br>
+                                <button class="btn btn-primary" onclick="getName(); return show('fpg3','fpg2');">Next</button><br>
                         </form>
                 </section>
 
                 <section class="form-page" id="fpg3" style="display: none;">
+                  <div class="container px-5">
+                    <div class="row gx-5 align-items-center">
+                            <!-- Mashead text and app badges-->
+                            <div class="text-center ">
+                                <h1 id="form-page-title-3" class="display-4 lh-1 mb-3"></h1>
+                                <p class="lead fw-normal text-muted mb-5">After taking a look at everything you need to get done today, this is how we would optimize your day</p>
+                            </div>
+                          
+                            <h3 id="dayPeriod"><b></b></h3><br><br>
 
+                            <h4>These are the classes you need to attend:</h4>
+
+                            <h4 class="lead fw-normal text-muted mb-5" id="lectureInformation"></h4><br>
+
+                            <h4>These are the tutorials/labs you need to attend:</h4>
+
+                            <h4 class="lead fw-normal text-muted mb-5" id="tutorialInformation"></h4><br>
+                            <h4 class="lead fw-normal text-muted mb-5" id="labInformation"></h4><br>
+
+                            <h4>You have an upcoming quiz:</h4>
+                            <h4 class="lead fw-normal text-muted mb-5" id="quizInformation"></h4><br>
+
+                            <h4>Upcoming assignments & homework:</h4>
+                            <h4 class="lead fw-normal text-muted mb-5" id="assignmentInformation"></h4><br>
+                            <h4 class="lead fw-normal text-muted mb-5" id="homeworkInformation"></h4><br>
+
+                            <button class="btn btn-primary" onclick="return show('fpg4','fpg3');">Go Back</button>
+                            <button class="btn btn-primary" onclick="getName(); return show('fpg3','fpg2');">Next</button><br>
                 </section>
+
+                <section class="form-page" id="fpg4" style="display: none;">
+                  <div class="container px-5">
+                    <div class="row gx-5 align-items-center">
+                        <form>
+                                <!-- Mashead text and app badges-->
+                                <div class="text-center ">
+                                    <h1 id="form-page-title-3" class="display-4 lh-1 mb-3"></h1>
+                                <p class="lead fw-normal text-muted mb-5">Here is how we optimized your day</p>
+                                </div>
+
+                                <button class="btn btn-primary" onclick="return show('fpg5','fpg4');">Go Back</button>
+                                <a href="index.html"><button class="btn btn-primary">Complete</button><br></a>
+                        </form>
+                </section>
+              </body>
                 
        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <script>
+             dropdownStudy = document.getElementById("studyDropdown");
+             dropdownEat = document.getElementById("eatDropdown");
+             dropdownSocialize = document.getElementById("socializeDropdown");
+
+            study.onclick = function () {
+                  if(study.checked == true) {
+                      dropdownStudy.style.display = "block";
+                  }
+                  else {
+                    dropdownStudy.style.display = "none";
+                  }
+             }
+
+            eat.onclick = function() {
+              if(eat.checked == true) {
+                    dropdownEat.style.display = "block";
+                  }
+                  else {
+                    dropdownEat.style.display = "none";
+                  }
+            }
+
+            socialize.onclick = function() {
+              if(socialize.checked == true) {
+                  dropdownSocialize.style.display = "block";
+                  }
+                  else {
+                    dropdownSocialize.style.display = "none";
+                  }
+            }
+        </script>
     </body>
 </html>
