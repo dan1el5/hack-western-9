@@ -4,7 +4,20 @@
     align-items: center;
 }
 
+body {
+    text-align: center;
+}
+
 .contents {
     display: inline-block;
 }
 
+.form-control {
+    width: 400px;
+    margin: auto auto;
+}
+
+.form-time {
+    width: 200px;
+    display: inline;
+}
