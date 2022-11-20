@@ -87,10 +87,13 @@ function show(fpg1, fpg2) {
     assignmentFormGroup.style.display = "none";
     homeworkFormGroup.style.display = "none";
 
-    studyTime = document.getElementById("study");
-    workoutTime = document.getElementById("workout");
-    eatTime = document.getElementById("eat");
-    chillTime = document.getElementById("chill");
+    // Hide or Display the Dropdown Menus
+    if (study.checked == true) {
+        dropdownStudy.style.display = "block";
+    }
+    else {
+        dropdownStudy.style.display = "none";
+    }
 
     if(lectures.checked == true) {
        lectureFormGroup.style.display = "block";
@@ -136,7 +139,54 @@ function show(fpg1, fpg2) {
      }
   }
 
+
 // Unique Title Page
 function getName() {
     document.getElementById("form-page-title-2").innerHTML = "Hi " + document.getElementById("name").value + "! <br> Let's create your schedule";
+    document.getElementById("form-page-title-3").innerHTML = "Thank you, " + document.getElementById("name").value + "!";
+
+    const startTime = document.getElementById("startDay");
+    const endTime = document.getElementById("endDay");
+
+    const startLectureTime = document.getElementById("lectureStartTime");
+    const endLectureTime = document.getElementById("lectureEndTime");
+
+    const startTutorialTime = document.getElementById("lectureStartTime");
+    const endTutorialTime = document.getElementById("lectureEndTime");
+
+    const startLabTime = document.getElementById("labStartTime");
+    const endLabTime = document.getElementById("labEndTime");
+
+    const startQuizTime = document.getElementById("quizStartTime");
+    const endQuizTime = document.getElementById("quizEndTime");
+
+    const homeworkTime = document.getElementById("homeworkTime");
+    const assignmentTime = document.getElementById("assignmentTime");
+
+    // Start and End Time
+    document.getElementById("dayPeriod").innerHTML = document.getElementById("name").value + ", your day starts at " +
+    startTime.value + " and ends at " + endTime.value + ".";
+
+    // Lecture Information
+    document.getElementById("lectureInformation").innerHTML = "You have a lecture (" + document.getElementById("lectureName").value + ") from " +
+    startLectureTime.value + " to " + endLectureTime.value + ".";
+
+    // Tutorial Information
+    document.getElementById("tutorialInformation").innerHTML = "You have a tutorial (" + document.getElementById("tutorialName").value + ") from " +
+    startTutorialTime.value + " to " + endTutorialTime.value + ".";
+
+    // Lab Information
+    document.getElementById("labInformation").innerHTML = "You have a lab (" + document.getElementById("labName").value + ") from " +
+    startLabTime.value + " to " + endLabTime.value + ".";
+
+    // Quiz Information
+    document.getElementById("quizInformation").innerHTML = "You have a quiz (" + document.getElementById("quizName").value + ") from " +
+    startQuizTime.value + " to " + endQuizTime.value + ".";
+
+    // Homework Information
+    document.getElementById("homeworkInformation").innerHTML = "You have " + homeworkTime.value + " of homework to complete";
+
+    // Assignment Information
+    document.getElementById("assignmentInformation").innerHTML = "You have " + assignmentTime.value + " of assignment work to complete";
+
 }
